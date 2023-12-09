@@ -7,6 +7,13 @@ pipeline{
             }
             
         }
+
+        stage("second stage"){
+            steps{
+                echo "hello from second stage"
+            }
+            
+        }
     }
     
 }
