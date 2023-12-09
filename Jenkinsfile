@@ -1,6 +1,8 @@
 pipeline{
-    agent any
-    stages{
+    agent{
+        label "slave1"
+    }
+     stages{
         stage("first stage"){
             steps{
                 echo "hello from first stage"
@@ -22,5 +24,5 @@ pipeline{
             
         }
     }
-    
+   
 }
