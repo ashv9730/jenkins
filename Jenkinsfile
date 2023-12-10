@@ -1,16 +1,22 @@
-pipeline{
-    agent any
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+pipeline {
+    agent {
+        // Define agent details here
     }
-    stages{
-        stage("Loging to aws"){
-            steps{
-                echo 'printing aws Access key'
-                sh '${AWS_ACCESS_KEY_ID}'
+    stages {
+        stage('Example stage 1') {
+            environment {
+                BITBUCKET_COMMON_CREDS = credentials('jenkins-bitbucket-common-creds')
             }
-           
+            steps {
+                echo "username $BITBUCKET_COMMON_CREDS_USR"
+                echo "password $BITBUCKET_COMMON_CREDS_PSW"
+            }
+        }
+        stage('Example stage 2') {
+            steps {
+                //
+                echo "====++++second stage++++===="
+            }
         }
     }
 }
