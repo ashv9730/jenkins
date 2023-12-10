@@ -7,7 +7,8 @@ pipeline{
     stages{
         stage("Loging to aws"){
             steps{
-                echo '$AWS_SECRET_ACCESS_KEY'
+                echo 'printing aws Access key'
+                echo $AWS_SECRET_ACCESS_KEY
             }
            
         }
