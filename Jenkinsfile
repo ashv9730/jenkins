@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage("Loging to aws"){
             steps{
-                echo AWS_ACCESS_KEY_ID
+                echo $AWS_ACCESS_KEY_ID
             }
            
         }
