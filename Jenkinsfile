@@ -4,6 +4,14 @@ pipeline {
     //     skipStagesAfterUnstable()
     // }
     stages {
+
+        stage("Aclean workscape"){
+            steps{
+               cleanWs()
+            }
+            
+        }
+
         stage('Build') {
             steps {
                 sh 'make'
