@@ -1,24 +1,15 @@
-pipeline {
+pipeline{
     agent any
     environment {
-        CC = """${sh(
-            returnstdout: true,
-             script: 'echo "clang"' 
-        )}"""
-
-        EXIT_STATUS = """${sh(
-                returnStatus: true,
-                script: 'exit 1'
-            )}"""
+        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
     }
-    stages {
-        stage('Example') {
-            environment {
-                DEBUG_FLAGS = '-g'
+    stages{
+        stage("Loging to aws"){
+            steps{
+                echo AWS_ACCESS_KEY_ID
             }
-            steps {
-                sh 'printenv'
-            }
+           
         }
     }
 }
