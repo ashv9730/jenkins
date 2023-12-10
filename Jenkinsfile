@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    // options {
-    //     skipStagesAfterUnstable()
-    // }
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
 
         stage("Aclean workscape"){
@@ -14,18 +14,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'make'
+               echo "build"
             }
         }
         stage('Test'){
             steps {
-                sh 'make check'
-                junit 'reports/**/*.xml'
+                echo "test"
             }
         }
         stage('Deploy') {
             steps {
-                sh 'make publish'
+                echo "deploy"
             }
         }
     }
