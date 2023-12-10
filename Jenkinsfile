@@ -1,20 +1,16 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage('Example stage 1') {
-            environment {
-                BITBUCKET_COMMON_CREDS = credentials('jenkins-bitbucket-common-creds')
+    environment {
+        EXAMPLE_CREDS = credentials('jenkins-bitbucket-common-creds')
+    }
+    stages{
+        stage("example"){
+            steps{
+                echo "========executing A========"
+                sh('curl -u $EXAMPLE_CREDS_USR:$EXAMPLE_CREDS_PSW https://example.com/')
             }
-            steps {
-                echo "username and passwd"
-                sh('$BITBUCKET_COMMON_CREDS_USR:$BITBUCKET_COMMON_CREDS_PSW')
-            }
-        }
-        stage('Example stage 2') {
-            steps {
-                //
-                echo "====++++second stage++++===="
-            }
+           
         }
     }
+   
 }
