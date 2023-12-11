@@ -1,13 +1,11 @@
 pipeline{
-    agent any
-    environment {
-        EXAMPLE_CREDS = credentials('jenkins-bitbucket-common-creds')
+    agent{
+        label "slave1"
     }
     stages{
-        stage("example"){
+        stage("hello"){
             steps{
-                echo "========executing A========"
-                sh('curl -u $EXAMPLE_CREDS_USR:$EXAMPLE_CREDS_PSW https://example.com/')
+                echo "hello"
             }
            
         }
