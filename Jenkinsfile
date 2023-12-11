@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-      DOCKER_CRED = credentials('jenkins-bitbucket-common-creds')
+      DOCKER_CRED = credentials('dockerhub-cred')
     }
     stages {
         stage('Clone Code') {
