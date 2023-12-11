@@ -6,6 +6,12 @@ pipeline {
       DOCKER_CRED = credentials('dockerhub-cred')
     }
     stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Clone Code') {
             steps {
                 echo 'Cloning the code'
